@@ -1,6 +1,6 @@
 {
 	"version": 8,
-	"name": "toronto-map",
+	"name": "map-time",
 	"metadata": {
 		"maputnik:renderer": "mbgljs"
 	},
@@ -51,13 +51,23 @@
 		},
 		{
 			"source": "osm",
+			"id": "land-natural-buffer",
+			"type": "line",
+			"source-layer": "land",
+			"filter": [ "in", "kind", "brownfield", "farmland", "farmyard", "greenfield", "greenhouse_horticulture", "orchard", "plant_nursery", "vineyard", "landfill", "park", "village_green", "recreation_ground", "allotments", "garden", "cemetery", "grave_yard", "miniature_golf", "playground", "golf_course", "bare_rock", "scree", "shingle", "forest", "grass", "grassland", "meadow", "wet_meadow", "heath", "scrub", "beach", "sand", "bog", "marsh", "string_bog", "swamp" ],
+			"paint": {
+				"line-color": "hsl(0, 0%, 0%)",
+				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 2, 20, 3 ]
+			}
+		},
+		{
+			"source": "osm",
 			"id": "water-area",
 			"type": "fill",
 			"source-layer": "water_polygons",
 			"filter": [ "in", "kind", "water", "river" ],
 			"paint": {
-				"fill-color": "hsl(200, 100%, 80%)",
-				"fill-opacity": { "stops": [ [ 4, 0 ], [ 6, 1 ] ] }
+				"fill-color": "hsl(200, 100%, 80%)"
 			}
 		},
 		{
