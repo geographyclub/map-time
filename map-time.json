@@ -17,7 +17,7 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "hsl(0, 0%, 100%)"
+				"background-color": "hsl(110, 60%, 85%)"
 			}
 		},
 		{
@@ -47,17 +47,6 @@
 			"filter": [ "in", "kind", "brownfield", "farmland", "farmyard", "greenfield", "greenhouse_horticulture", "orchard", "plant_nursery", "vineyard", "landfill", "park", "village_green", "recreation_ground", "allotments", "garden", "cemetery", "grave_yard", "miniature_golf", "playground", "golf_course", "bare_rock", "scree", "shingle", "forest", "grass", "grassland", "meadow", "wet_meadow", "heath", "scrub", "beach", "sand", "bog", "marsh", "string_bog", "swamp" ],
 			"paint": {
 				"fill-color": "hsl(110, 60%, 80%)"
-			}
-		},
-		{
-			"source": "osm",
-			"id": "land-natural-buffer",
-			"type": "line",
-			"source-layer": "land",
-			"filter": [ "in", "kind", "brownfield", "farmland", "farmyard", "greenfield", "greenhouse_horticulture", "orchard", "plant_nursery", "vineyard", "landfill", "park", "village_green", "recreation_ground", "allotments", "garden", "cemetery", "grave_yard", "miniature_golf", "playground", "golf_course", "bare_rock", "scree", "shingle", "forest", "grass", "grassland", "meadow", "wet_meadow", "heath", "scrub", "beach", "sand", "bog", "marsh", "string_bog", "swamp" ],
-			"paint": {
-				"line-color": "hsl(0, 0%, 0%)",
-				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 2, 20, 3 ]
 			}
 		},
 		{
@@ -165,10 +154,10 @@
 		},
 		{
 			"source": "osm",
-			"id": "highway-major-divider",
+			"id": "highway-divider",
 			"type": "line",
 			"source-layer": "streets",
-			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary", "residential" ],
+			"filter": [ "in", "kind", "motorway", "trunk", "primary", "secondary", "tertiary", "residential", "service" ],
 			"paint": {
 				"line-color": "hsl(0, 0%, 100%)",
 				"line-dasharray": { "stops": [ [ 16, [2, 2] ], [ 18, [4, 4] ] ] },
@@ -232,13 +221,9 @@
 			"source-layer": "pois",
 			"filter": [ "to-boolean", [ "get", "amenity" ] ],
 			"layout": {
-				"icon-size": 1,
-				"icon-image": [ "match", [ "get", "amenity" ], "arts_centre", "icon-art_gallery", "atm", "icon-atm", "bank", "icon-bank", "bar", "icon-bar", "bench", "icon-bench", "bicycle_rental", "icon-bicycle_share", "biergarten", "icon-beergarden", "cafe", "icon-cafe", "car_rental", "icon-car_rental", "car_sharing", "icon-car_rental", "car_wash", "icon-car_wash", "cinema", "icon-cinema", "college", "icon-college", "community_centre", "icon-community", "dentist", "icon-dentist", "doctors", "icon-doctor", "dog_park", "icon-dog_park", "drinking_water", "icon-drinking_water", "embassy", "icon-embassy", "fast_food", "icon-fast_food", "fire_station", "icon-fire_station", "fountain", "icon-fountain", "grave_yard", "icon-cemetery", "hospital", "icon-hospital", "hunting_stand", "icon-huntingstand", "library", "icon-library", "marketplace", "icon-marketplace", "nightclub", "icon-nightclub", "nursing_home", "icon-nursinghome", "pharmacy", "icon-pharmacy", "place_of_worship", "icon-place_of_worship", "playground", "icon-playground", "police", "icon-police", "post_box", "icon-postbox", "post_office", "icon-post", "prison", "icon-prison", "pub", "icon-beer", "recycling", "icon-recycling", "restaurant", "icon-restaurant", "school", "icon-school", "shelter", "icon-shelter", "telephone", "icon-telephone", "theatre", "icon-theatre", "toilets", "icon-toilet", "townhall", "icon-town_hall", "vending_machine", "icon-vendingmachine", "veterinary", "icon-veterinary", "waste_basket", "icon-waste_basket", "unknown" ],
 				"symbol-placement": "point",
 				"text-field": "{name}",
-				"text-transform": "uppercase",
 				"text-anchor": "top",
-				"icon-anchor": "bottom",
 				"text-allow-overlap": false,
 				"text-font": [ "montserrat-black" ],
 				"text-size": 16,
